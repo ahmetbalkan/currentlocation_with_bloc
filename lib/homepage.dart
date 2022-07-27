@@ -1,7 +1,6 @@
 import 'package:currentlocation_with_bloc/blocs/geolocation/geolocation_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:geolocator/geolocator.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -22,16 +21,24 @@ class HomePage extends StatelessWidget {
           builder: (context, state) {
             if (state is GeolocationLoading) {
               return const Center(
-                child: const CircularProgressIndicator(),
+                child: CircularProgressIndicator(),
               );
             } else if (state is GeolocationLoaded) {
               try {
-                return Center(child: Text(state.position.latitude.toString()));
+                return Center(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Latitude : ${state.position.latitude}"),
+                    Text("Longitude : ${state.position.longitude}")
+                  ],
+                ));
               } catch (e) {
                 return Text(e.toString());
               }
             } else {
-              return Text("Something wrong");
+              return const Text("Something wrong");
             }
           },
         ),

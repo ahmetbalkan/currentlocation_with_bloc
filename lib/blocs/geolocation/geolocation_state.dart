@@ -12,7 +12,7 @@ class GeolocationLoading extends GeolocationState {}
 class GeolocationLoaded extends GeolocationState {
   final Position position;
 
-  GeolocationLoaded({required this.position});
+  const GeolocationLoaded({required this.position});
   @override
   List<Object> get props => [position];
 }
