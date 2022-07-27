@@ -1,7 +1,6 @@
 # currentlocation_with_bloc
 
-A new Flutter project.
-
+Bloc kullanılarak Geolocator ile location ekrana basmak için örnek uygulamadır.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
